@@ -1,0 +1,20 @@
+name: CI with Job Summary
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: [ubuntu-latest]
+
+    steps:
+      - name: Display all GH vars
+        run:  set | grep "GITHUB_"
+      - name: Check for step summary variable
+        run: echo "GITHUB_STEP_SUMMARY $GITHUB_STEP_SUMMARY"
+      - name: Add some content
+        run: echo "## This is some content!" >> "$GITHUB_STEP_SUMMARY"
