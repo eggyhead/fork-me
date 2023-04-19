@@ -1,0 +1,11 @@
+name: Resolve public action
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: [ubuntu-latest]
+
+    steps:
+      - uses: bbq-beets/eggyhead-test-action@v1
